@@ -1,0 +1,6 @@
+@Frodo_HostAddress = http://localhost:5045
+
+GET {{Frodo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
