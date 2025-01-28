@@ -12,9 +12,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
+=  <ItemGroup>
     <ProjectReference Include="..\Core\Core.Api\Core.Api.csproj" />
     <ProjectReference Include="..\Modules\Pets\Frodo.Pets.Application\Frodo.Pets.Application.csproj" />
   </ItemGroup>
 
-</Project>
+</</Project>
