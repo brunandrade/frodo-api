@@ -7,7 +7,8 @@ public class Pet : Entity, IAggregateRoot
 {
     public Pet()
     {
-        PetUsers = new List<PetUser>();
+        Users = new List<PetUser>();
+        Vaccines = new List<PetVaccine>();
     }
 
     public Pet(string name, int age, PetGenderEnum gender, decimal weight, string imageUrl) : this()
@@ -24,5 +25,6 @@ public class Pet : Entity, IAggregateRoot
     public PetGenderEnum Gender { get; protected set; }
     public decimal Weight { get; protected set; }
     public string? ImageUrl { get; protected set; }
-    public ICollection<PetUser> PetUsers { get; protected set; }
+    public ICollection<PetUser> Users { get; protected set; }
+    public ICollection<PetVaccine> Vaccines { get; protected set; }
 }

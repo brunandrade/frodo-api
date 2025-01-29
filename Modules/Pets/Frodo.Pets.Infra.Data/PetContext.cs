@@ -13,6 +13,9 @@ public class PetContext : DbContext, IUnitOfWork
 
     public DbSet<Pet> Pets { get; set; }
     public DbSet<PetUser> PetUsers { get; set; }
+    public DbSet<PetVaccine> PetVaccines { get; set; }
+    public DbSet<PetVaccineDate> PetVaccineDates { get; set; }
+    public DbSet<Medication> Medications { get; set; }
 
     public async Task<bool> Commit(CancellationToken cancellationToken)
         => await SaveChangesAsync(cancellationToken) > 0;
@@ -22,6 +25,9 @@ public class PetContext : DbContext, IUnitOfWork
         modelBuilder.HasDefaultSchema("Pets");
         modelBuilder.ApplyConfiguration(new PetMap());
         modelBuilder.ApplyConfiguration(new PetUserMap());
+        modelBuilder.ApplyConfiguration(new PetVaccineMap());
+        modelBuilder.ApplyConfiguration(new PetVaccineDateMap());
+        modelBuilder.ApplyConfiguration(new MedicationMap());
         base.OnModelCreating(modelBuilder);
     }
 }

@@ -15,6 +15,7 @@ public class PetMap : BaseMap<Pet>
         builder.Property(x => x.Weight).IsRequired(true);
         builder.Property(x => x.ImageUrl).IsRequired(false);
 
-        builder.HasMany(x => x.PetUsers);
+        builder.HasMany(x => x.Users);
+        builder.HasMany(x => x.Vaccines);
     }
 }
