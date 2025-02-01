@@ -31,4 +31,6 @@ public class PetVaccine : Entity
         var vaccineDate = new PetVaccineDate(Id, vaccinationIn, revaccinateIn);
         Dates.Add(vaccineDate);
     }
+
+    public void Remove() => DeletedIn = DateTime.Now;
 }
