@@ -1,6 +1,8 @@
-﻿using Core.Domain.DomainObjects;
+﻿using Azure;
+using Core.Domain.DomainObjects;
 using Frodo.Pets.Domain.Dtos;
 using Frodo.Pets.Domain.Enums;
+using System.Reflection;
 
 namespace Frodo.Pets.Domain.Entities;
 
@@ -33,5 +35,14 @@ public class Pet : Entity, IAggregateRoot
     {
         var vaccine = new PetVaccine();
         Vaccines.Add(vaccine);
+    }
+
+    public void Update(UpdatePetDto updatePetDto)
+    {
+        Name = updatePetDto.Name ?? Name;
+        Age = updatePetDto.Age ?? Age;
+        Gender = updatePetDto.Gender ?? Gender;
+        Weight = updatePetDto.Weight ?? Weight;
+        ImageUrl = updatePetDto.ImageUrl ?? ImageUrl;
     }
 }
