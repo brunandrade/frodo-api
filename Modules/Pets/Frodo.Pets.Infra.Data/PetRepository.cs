@@ -1,4 +1,5 @@
-﻿using Core.Data.UnitOfWork;
+﻿using Core.Data.Extensions;
+using Core.Data.UnitOfWork;
 using Core.Domain.DomainObjects;
 using Frodo.Pets.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -20,11 +21,12 @@ public class PetRepository : IPetRepository
     public void Update<T>(T entity)
         => _petContext.Update(entity);
 
-    public async Task<T?> GetByIdAsync<T>(Guid id, CancellationToken cancellationToken) where T : Entity
+    public async Task<T?> GetByIdAsync<T>(Guid id, IEnumerable<string>? includes, CancellationToken cancellationToken) where T : Entity
     {
         return await _petContext
             .Set<T>()
             .Where(x => x.Id == id && !x.DeletedIn.HasValue)
+            .IncludeMultiple(includes)
             .FirstOrDefaultAsync(cancellationToken);
     }
 }

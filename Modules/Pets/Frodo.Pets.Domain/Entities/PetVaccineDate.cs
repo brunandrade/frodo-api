@@ -4,7 +4,12 @@ namespace Frodo.Pets.Domain.Entities;
 
 public class PetVaccineDate : Entity
 {
-    public PetVaccineDate(Guid petVaccineId, DateTime vaccinationIn, DateTime? revaccinateIn)
+    public PetVaccineDate()
+    {
+        
+    }
+
+    public PetVaccineDate(Guid petVaccineId, DateTime vaccinationIn, DateTime? revaccinateIn) : this()
     {
         PetVaccineId = petVaccineId;
         VaccinationIn = vaccinationIn;

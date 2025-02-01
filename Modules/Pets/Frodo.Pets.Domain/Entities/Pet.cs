@@ -1,4 +1,5 @@
 ﻿using Core.Domain.DomainObjects;
+using Frodo.Pets.Domain.Dtos;
 using Frodo.Pets.Domain.Enums;
 
 namespace Frodo.Pets.Domain.Entities;
@@ -27,4 +28,10 @@ public class Pet : Entity, IAggregateRoot
     public string? ImageUrl { get; protected set; }
     public ICollection<PetUser> Users { get; protected set; }
     public ICollection<PetVaccine> Vaccines { get; protected set; }
+
+    public void AddPetVaccine(CreatePetVaccineDto createPetVaccineDto)
+    {
+        var vaccine = new PetVaccine();
+        Vaccines.Add(vaccine);
+    }
 }
