@@ -1,5 +1,4 @@
-﻿using Core.Data.Repositories;
-using Core.Data.UnitOfWork;
+﻿using Core.Data.UnitOfWork;
 using Core.Domain.DomainObjects;
 using Frodo.Pets.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;

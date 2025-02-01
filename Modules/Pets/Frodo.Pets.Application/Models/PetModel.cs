@@ -8,4 +8,5 @@ public record PetModel
     public int Age { get; set; }
     public PetGenderEnum Gender { get; set; }
     public decimal Weight { get; set; }
+    public IEnumerable<PetVaccineModel> Vaccines { get; set; }
 }

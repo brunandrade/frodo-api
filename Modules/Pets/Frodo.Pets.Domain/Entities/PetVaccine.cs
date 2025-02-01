@@ -6,7 +6,7 @@ public class PetVaccine : Entity
 {
     public PetVaccine()
     {
-        
+        Dates = new List<PetVaccineDate>();
     }
 
     public Guid PetId { get; protected set; }
