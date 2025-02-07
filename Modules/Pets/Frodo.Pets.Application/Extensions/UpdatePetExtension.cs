@@ -3,9 +3,9 @@ using Frodo.Pets.Domain.Dtos;
 
 namespace Frodo.Pets.Application.Extensions;
 
-public static class UpdatePetDtoExtension
+public static class UpdatePetExtension
 {
-    public static UpdatePetDto Map(this UpdatePetCommand command, string imageUrl)
+    public static UpdatePetDto MapToDto(this UpdatePetCommand command, string imageUrl)
     {
         return new UpdatePetDto
         {
@@ -16,4 +16,7 @@ public static class UpdatePetDtoExtension
             ImageUrl = imageUrl,
         };
     }
+
+    public static UpdatePetCommand MapToCommand(this UpdatePetRequest request, Guid id)
+        => new UpdatePetCommand(id, request.Name, request.Age, request.Weight, request.Gender, request.Image);
 }

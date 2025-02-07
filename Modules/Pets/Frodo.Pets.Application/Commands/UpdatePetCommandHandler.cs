@@ -10,8 +10,15 @@ using Microsoft.AspNetCore.Http;
 
 namespace Frodo.Pets.Application.Commands;
 
+public record UpdatePetRequest(
+    string? Name,
+    int? Age,
+    decimal? Weight,
+    PetGenderEnum? Gender,
+    IFormFile? Image);
+
 public record UpdatePetCommand(
-    Guid PetId,
+    Guid Id,
     string? Name,
     int? Age,
     decimal? Weight,
@@ -29,7 +36,7 @@ public class UpdatePetCommandHandler : ICommandHandler<UpdatePetCommand, PetMode
 
     public async Task<PetModel> Handle(UpdatePetCommand request, CancellationToken cancellationToken)
     {
-        var pet = await _petRepository.GetByIdAsync<Pet>(request.PetId, null, cancellationToken)
+        var pet = await _petRepository.GetByIdAsync<Pet>(request.Id, null, cancellationToken)
             ?? throw new BusinessException("UpdatePet", "Pet não encontrado.");
 
         var updateDto = request.Map("url");

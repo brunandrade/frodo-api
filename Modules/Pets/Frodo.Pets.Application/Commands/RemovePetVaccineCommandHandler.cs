@@ -5,7 +5,7 @@ using Frodo.Pets.Domain.Interfaces;
 
 namespace Frodo.Pets.Application.Commands;
 
-public record RemovePetVaccineCommand(Guid PetId, Guid PetVaccineId) : ICommand;
+public record RemovePetVaccineCommand(Guid Id, Guid PetVaccineId) : ICommand;
 
 public class RemovePetVaccineCommandHandler : ICommandHandler<RemovePetVaccineCommand>
 {
@@ -20,7 +20,7 @@ public class RemovePetVaccineCommandHandler : ICommandHandler<RemovePetVaccineCo
     {
         var includes = new List<string> { "PetVaccines" };
 
-        var pet = await _petRepository.GetByIdAsync<Pet>(request.PetId, includes, cancellationToken)
+        var pet = await _petRepository.GetByIdAsync<Pet>(request.Id, includes, cancellationToken)
             ?? throw new BusinessException("RemovePetVaccine", "Pet não encontrado.");
 
         var petVaccine = pet.Vaccines.FirstOrDefault(v => v.Id == request.PetVaccineId && !v.DeletedIn.HasValue)
