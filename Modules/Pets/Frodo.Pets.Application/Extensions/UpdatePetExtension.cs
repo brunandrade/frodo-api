@@ -13,10 +13,18 @@ public static class UpdatePetExtension
             Age = command.Age,
             Weight = command.Weight,
             Gender = command.Gender,
+            Race = command.Race,
             ImageUrl = imageUrl,
         };
     }
 
     public static UpdatePetCommand MapToCommand(this UpdatePetRequest request, Guid id)
-        => new UpdatePetCommand(id, request.Name, request.Age, request.Weight, request.Gender, request.Image);
+        => new UpdatePetCommand(
+            id, 
+            request.Name, 
+            request.Age, 
+            request.Weight, 
+            request.Race, 
+            request.Gender, 
+            request.Image);
 }

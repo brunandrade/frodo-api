@@ -1,4 +1,5 @@
 ﻿using Core.Messaging.Messaging;
+using Frodo.Pets.Application.Extensions;
 using Frodo.Pets.Application.Models;
 using Frodo.Pets.Domain.Enums;
 using Frodo.Pets.Domain.Interfaces;
@@ -12,6 +13,7 @@ public record CreatePetCommand(
     string Name, 
     int Age, 
     decimal Weight, 
+    string Race, 
     PetGenderEnum Gender,
     IFormFile Image) : ICommand<PetModel>;
 
@@ -28,7 +30,8 @@ public class CreatePetCommandHandler : ICommandHandler<CreatePetCommand, PetMode
 
     public async Task<PetModel> Handle(CreatePetCommand request, CancellationToken cancellationToken)
     {
-        var pet = _petFactory.Create(request.Name, request.Age, request.Gender, request.Weight, "url");
+        var createDto = request.MapToDto("url");
+        var pet = _petFactory.Create(createDto);
 
         await _petRepository.AddAsync(pet, cancellationToken);
         await _petRepository.IUnitOfWork.Commit(cancellationToken);

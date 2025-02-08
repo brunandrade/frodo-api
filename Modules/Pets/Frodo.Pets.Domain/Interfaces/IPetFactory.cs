@@ -1,9 +1,9 @@
-﻿using Frodo.Pets.Domain.Entities;
-using Frodo.Pets.Domain.Enums;
+﻿using Frodo.Pets.Domain.Dtos;
+using Frodo.Pets.Domain.Entities;
 
 namespace Frodo.Pets.Domain.Interfaces;
 
 public interface IPetFactory
 {
-    Pet Create(string name, int age, PetGenderEnum gender, decimal weight, string imageUrl);
+    Pet Create(CreatePetDto createPetDto);
 }
