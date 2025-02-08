@@ -14,6 +14,7 @@ public static class PetInstaller
     {
         services.AddMediatR(typeof(ApplicationAssemblyReference).Assembly);
         services.AddScoped<IPetFactory, PetFactory>();
+        services.AddScoped<ICreatePetVaccineService, CreatePetVaccineService>();
 
         services.AddScoped<IPetRepository, PetRepository>(provider =>
         {

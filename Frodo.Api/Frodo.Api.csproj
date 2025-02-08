@@ -7,14 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.Api\Core.Api.csproj" />
     <ProjectReference Include="..\Modules\Pets\Frodo.Pets.Application\Frodo.Pets.Application.csproj" />
+    <ProjectReference Include="..\Modules\Pets\Frodo.Pets.Infra.Data\Frodo.Pets.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,6 +2,7 @@
 using Core.Validations.Exceptions;
 using Frodo.Pets.Domain.Entities;
 using Frodo.Pets.Domain.Interfaces;
+using MediatR;
 
 namespace Frodo.Pets.Application.Commands;
 
@@ -16,7 +17,7 @@ public class RemovePetVaccineCommandHandler : ICommandHandler<RemovePetVaccineCo
         _petRepository = petRepository;
     }
 
-    public async Task Handle(RemovePetVaccineCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(RemovePetVaccineCommand request, CancellationToken cancellationToken)
     {
         var includes = new List<string> { "PetVaccines" };
 
@@ -30,5 +31,7 @@ public class RemovePetVaccineCommandHandler : ICommandHandler<RemovePetVaccineCo
 
         await _petRepository.AddAsync(pet, cancellationToken);
         await _petRepository.IUnitOfWork.Commit(cancellationToken);
+
+        return Unit.Value;
     }
 }
