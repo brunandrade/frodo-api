@@ -33,8 +33,13 @@ public class Pet : Entity, IAggregateRoot
     public ICollection<PetUser> Users { get; protected set; }
     public ICollection<PetVaccine> Vaccines { get; protected set; }
 
-    public void AddPetVaccine(CreatePetVaccineDto createPetVaccineDto)
-        => Vaccines.Add(new PetVaccine(createPetVaccineDto));
+    public PetVaccine AddPetVaccine(CreatePetVaccineDto createPetVaccineDto)
+    {
+        var petVaccine = new PetVaccine(createPetVaccineDto);
+        Vaccines.Add(petVaccine);
+        return petVaccine;
+    }
+
 
     public void AddPetUser(Guid userId)
         => Users.Add(new PetUser(Id, userId));

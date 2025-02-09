@@ -2,6 +2,7 @@
 
 public record PetVaccineModel
 {
+    public Guid Id { get; set; }
     public Guid PetId { get; set; }
     public Guid MedicationId { get; set; }
     public string? DoctorName { get; set; }
@@ -11,6 +12,7 @@ public record PetVaccineModel
 
 public record PetVaccineDateModel
 {
+    public Guid Id { get; set; }
     public Guid PetVaccineId { get; set; }
     public DateTime VaccinationIn { get; set; }
     public DateTime? RevaccinateIn { get; set; }

@@ -11,6 +11,9 @@ public class PetVaccineMap : BaseMap<PetVaccine>
         base.Configure(builder);
         builder.Property(x => x.PetId).IsRequired(true);
         builder.Property(x => x.MedicationId).IsRequired(true);
+        builder.Property(x => x.VaccinationIn).IsRequired(true);
+        builder.Property(x => x.Frequency).IsRequired(true);
+        builder.Property(x => x.NumberOfDays).IsRequired(false);
         builder.Property(x => x.DoctorName).IsRequired(false);
         builder.Property(x => x.Laboratory).IsRequired(false);
 

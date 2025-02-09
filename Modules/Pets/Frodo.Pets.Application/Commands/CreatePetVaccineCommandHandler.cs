@@ -3,16 +3,26 @@ using Core.Validations.Exceptions;
 using Frodo.Pets.Application.Extensions;
 using Frodo.Pets.Application.Models;
 using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain.Enums;
 using Frodo.Pets.Domain.Interfaces;
 using Mapster;
 
 namespace Frodo.Pets.Application.Commands;
 
+public record CreatePetVaccineRequest(
+    Guid MedicationId, 
+    DateTime VaccinationIn, 
+    VaccinationFrequencyEnum Frequency,
+    int? NumberOfDays,
+    string? DoctorName, 
+    string? Laboratory);
+
 public record CreatePetVaccineCommand(
     Guid PetId,
     Guid MedicationId,
     DateTime VaccinationIn,
-    DateTime? RevaccinateIn,
+    VaccinationFrequencyEnum Frequency,
+    int? NumberOfDays,
     string? DoctorName,
     string? Laboratory) : ICommand<PetModel>;
 
@@ -40,7 +50,7 @@ public class CreatePetVaccineCommandHandler : ICommandHandler<CreatePetVaccineCo
         var pet = await _petRepository.GetByIdAsync<Pet>(request.PetId, includes, cancellationToken) 
             ?? throw new BusinessException("AddPetVaccine", "Pet não encontrado.");
 
-        var createPetVaccineDto = request.Map(); 
+        var createPetVaccineDto = request.MapToDto(); 
         _createPetVaccineService.Create(pet, createPetVaccineDto);
 
         await _petRepository.AddAsync(pet, cancellationToken);

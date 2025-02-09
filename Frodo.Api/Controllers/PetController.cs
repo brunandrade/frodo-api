@@ -30,8 +30,8 @@ public class PetController(IMediator mediator) : BaseController
     [HttpPost("{id}/add-vaccine")]
     [ProducesResponseType(typeof(PetModel), (int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public async Task<IActionResult> CreatePetVaccine([FromRoute] Guid id, [FromForm] CreatePetVaccineCommand request)
-        => Ok(await _mediator.Send(request));
+    public async Task<IActionResult> CreatePetVaccine([FromRoute] Guid id, [FromForm] CreatePetVaccineRequest request)
+        => Ok(await _mediator.Send(request.MapToCommand(id)));
 
     //[HttpDelete("{id}/remove-vaccine/{vaccineId}")]
     //[ProducesResponseType(typeof(Unit), (int)HttpStatusCode.OK)]

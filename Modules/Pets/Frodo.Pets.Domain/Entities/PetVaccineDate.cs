@@ -1,4 +1,5 @@
 ﻿using Core.Domain.DomainObjects;
+using Frodo.Pets.Domain.Enums;
 
 namespace Frodo.Pets.Domain.Entities;
 
@@ -9,14 +10,12 @@ public class PetVaccineDate : Entity
         
     }
 
-    public PetVaccineDate(Guid petVaccineId, DateTime vaccinationIn, DateTime? revaccinateIn) : this()
+    public PetVaccineDate(Guid petVaccineId, DateTime revaccinateIn) : this()
     {
         PetVaccineId = petVaccineId;
-        VaccinationIn = vaccinationIn;
         RevaccinateIn = revaccinateIn;
     }
 
     public Guid PetVaccineId { get; protected set; }
-    public DateTime VaccinationIn { get; protected set; }
-    public DateTime? RevaccinateIn { get; protected set; }
+    public DateTime RevaccinateIn { get; protected set; }
 }
