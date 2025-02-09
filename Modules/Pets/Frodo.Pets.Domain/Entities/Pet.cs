@@ -20,6 +20,8 @@ public class Pet : Entity, IAggregateRoot
         Weight = createPetDto.Weight;
         Race = createPetDto.Race;
         ImageUrl = createPetDto.ImageUrl;
+
+        AddPetUser(createPetDto.UserId);
     }
 
     public string Name { get; protected set; }
@@ -33,6 +35,9 @@ public class Pet : Entity, IAggregateRoot
 
     public void AddPetVaccine(CreatePetVaccineDto createPetVaccineDto)
         => Vaccines.Add(new PetVaccine(createPetVaccineDto));
+
+    public void AddPetUser(Guid userId)
+        => Users.Add(new PetUser(Id, userId));
 
     public void Update(UpdatePetDto updatePetDto)
     {

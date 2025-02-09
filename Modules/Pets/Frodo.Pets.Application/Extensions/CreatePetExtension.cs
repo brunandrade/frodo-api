@@ -10,6 +10,7 @@ public static class CreatePetExtension
         return new CreatePetDto
         {
             Name = command.Name,
+            UserId = command.UserId,
             Age = command.Age,
             Weight = command.Weight,
             Gender = command.Gender,

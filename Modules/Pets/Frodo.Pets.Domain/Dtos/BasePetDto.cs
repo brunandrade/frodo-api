@@ -14,6 +14,7 @@ public record BasePetDto
 
 public record CreatePetDto : BasePetDto
 {
+    public Guid UserId { get; set; }
 }
 
 public record UpdatePetDto : BasePetDto
