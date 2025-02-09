@@ -10,6 +10,6 @@ public class PetVaccineDateMap : BaseMap<PetVaccineDate>
     {
         base.Configure(builder);
         builder.Property(x => x.PetVaccineId).IsRequired(true);
-        builder.Property(x => x.RevaccinateIn).IsRequired(false);
+        builder.Property(x => x.RevaccinateIn).IsRequired(true);
     }
 }

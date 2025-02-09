@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Frodo.Pets.Infra.Data.Migrations
 {
     [DbContext(typeof(PetContext))]
-    [Migration("20250208180744_CreatePetDatabase")]
+    [Migration("20250209141806_CreatePetDatabase")]
     partial class CreatePetDatabase
     {
         /// <inheritdoc />
@@ -139,16 +139,25 @@ namespace Frodo.Pets.Infra.Data.Migrations
                     b.Property<string>("DoctorName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Frequency")
+                        .HasColumnType("int");
+
                     b.Property<string>("Laboratory")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("MedicationId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int?>("NumberOfDays")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("PetId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedIn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("VaccinationIn")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -172,13 +181,10 @@ namespace Frodo.Pets.Infra.Data.Migrations
                     b.Property<Guid>("PetVaccineId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("RevaccinateIn")
+                    b.Property<DateTime>("RevaccinateIn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("UpdatedIn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("VaccinationIn")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

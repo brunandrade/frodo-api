@@ -43,8 +43,8 @@ public class CreatePetVaccineCommandHandler : ICommandHandler<CreatePetVaccineCo
     {
         var includes = new List<string>
         {
-            "PetVaccines",
-            "PetVaccines.Dates"
+            "Vaccines",
+            "Vaccines.Dates"
         };
 
         var pet = await _petRepository.GetByIdAsync<Pet>(request.PetId, includes, cancellationToken) 
@@ -53,7 +53,7 @@ public class CreatePetVaccineCommandHandler : ICommandHandler<CreatePetVaccineCo
         var createPetVaccineDto = request.MapToDto(); 
         _createPetVaccineService.Create(pet, createPetVaccineDto);
 
-        await _petRepository.AddAsync(pet, cancellationToken);
+        _petRepository.Update(pet);
         await _petRepository.IUnitOfWork.Commit(cancellationToken);
 
         var data = pet.Adapt<PetModel>();

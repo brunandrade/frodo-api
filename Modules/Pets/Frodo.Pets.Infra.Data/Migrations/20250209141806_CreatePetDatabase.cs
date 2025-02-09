@@ -88,6 +88,9 @@ namespace Frodo.Pets.Infra.Data.Migrations
                     MedicationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DoctorName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Laboratory = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VaccinationIn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Frequency = table.Column<int>(type: "int", nullable: false),
+                    NumberOfDays = table.Column<int>(type: "int", nullable: true),
                     CreatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DeletedIn = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -111,8 +114,7 @@ namespace Frodo.Pets.Infra.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PetVaccineId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VaccinationIn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RevaccinateIn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RevaccinateIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DeletedIn = table.Column<DateTime>(type: "datetime2", nullable: true)
