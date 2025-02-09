@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core.Validations\Core.Validations.csproj" />
     <ProjectReference Include="..\..\..\Core\Core.Data\Core.Data.csproj" />
     <ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
   </ItemGroup>
