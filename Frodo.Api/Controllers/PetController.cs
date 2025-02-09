@@ -2,6 +2,7 @@
 using Frodo.Pets.Application.Commands;
 using Frodo.Pets.Application.Extensions;
 using Frodo.Pets.Application.Models;
+using Frodo.Pets.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -38,4 +39,10 @@ public class PetController(IMediator mediator) : BaseController
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> RemovePetVaccine([FromRoute] Guid id, [FromRoute] Guid vaccineId)
         => Ok(await _mediator.Send(new RemovePetVaccineCommand(id, vaccineId)));
+
+    [HttpGet("{id}")]
+    [ProducesResponseType(typeof(PetModel), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+        => Ok(await _mediator.Send(new GetPetByIdQuery(id)));
 }

@@ -1,4 +1,5 @@
-﻿using Frodo.Pets.Domain.Entities;
+﻿using Core.Common.Extensions;
+using Frodo.Pets.Domain.Entities;
 using Frodo.Pets.Domain.Enums;
 
 namespace Frodo.Pets.Application.Models;
@@ -9,6 +10,7 @@ public record PetModel
     public string Name { get; set; }
     public int Age { get; set; }
     public PetGenderEnum Gender { get; set; }
+    public string GenderName => Gender.GetDescription();
     public decimal Weight { get; set; }
     public string Race { get; set; }
     public string? ImageUrl { get; set; }
