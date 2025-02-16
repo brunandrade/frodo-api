@@ -1,4 +1,6 @@
-﻿using Core.Data.Extensions;
+﻿using Ardalis.Specification;
+using Ardalis.Specification.EntityFrameworkCore;
+using Core.Data.Extensions;
 using Core.Data.UnitOfWork;
 using Core.Domain.DomainObjects;
 using Frodo.Pets.Domain.Interfaces;
@@ -28,5 +30,13 @@ public class PetRepository : IPetRepository
             .Where(x => x.Id == id && !x.DeletedIn.HasValue)
             .IncludeMultiple(includes)
             .FirstOrDefaultAsync(cancellationToken);
+    }
+
+    public async Task<IEnumerable<T>?> FindAsync<T>(ISpecification<T> spec, CancellationToken cancellationToken) where T : Entity
+    {
+        var query = _petContext.Set<T>().AsQueryable();
+        query = SpecificationEvaluator.Default.GetQuery(query, spec);
+
+        return await query.ToListAsync(cancellationToken);
     }
 }

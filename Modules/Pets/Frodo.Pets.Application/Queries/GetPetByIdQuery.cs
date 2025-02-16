@@ -22,7 +22,7 @@ public class GetPetByIdQueryHandler : IQueryHandler<GetPetByIdQuery, PetModel>
     {
         var includes = new List<string>
         {
-            "Users",
+            "Owners",
             "Vaccines",
             "Vaccines.Dates"
         };

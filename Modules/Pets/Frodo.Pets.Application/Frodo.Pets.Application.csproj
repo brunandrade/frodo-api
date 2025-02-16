@@ -15,6 +15,7 @@
     <ProjectReference Include="..\..\..\Core\Core.Messaging\Core.Messaging.csproj" />
     <ProjectReference Include="..\..\..\Core\Core.Validations\Core.Validations.csproj" />
     <ProjectReference Include="..\Frodo.Pets.Domain\Frodo.Pets.Domain.csproj" />
+	<ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
   </ItemGroup>
 
 </Project>

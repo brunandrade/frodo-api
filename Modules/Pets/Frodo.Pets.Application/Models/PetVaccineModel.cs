@@ -1,4 +1,5 @@
-﻿using Frodo.Pets.Domain.Enums;
+﻿using Core.Common.Extensions;
+using Frodo.Pets.Domain.Enums;
 
 namespace Frodo.Pets.Application.Models;
 
@@ -9,6 +10,7 @@ public record PetVaccineModel
     public Guid MedicationId { get; set; }
     public DateTime VaccinationIn { get; set; }
     public VaccinationFrequencyEnum Frequency { get; set; }
+    public string FrequencyName => Frequency.GetDescription();
     public int? NumberOfDays { get; set; }
     public string? DoctorName { get; set; }
     public string? Laboratory { get; set; }
