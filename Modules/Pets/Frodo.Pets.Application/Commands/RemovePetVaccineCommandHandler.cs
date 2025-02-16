@@ -29,7 +29,7 @@ public class RemovePetVaccineCommandHandler : ICommandHandler<RemovePetVaccineCo
 
         petVaccine.Remove();
 
-        await _petRepository.AddAsync(pet, cancellationToken);
+        _petRepository.Update(pet);
         await _petRepository.IUnitOfWork.Commit(cancellationToken);
 
         return Unit.Value;

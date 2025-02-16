@@ -40,9 +40,10 @@ public class Pet : Entity, IAggregateRoot
         return petVaccine;
     }
 
-
     public void AddPetUser(Guid userId)
         => Users.Add(new PetUser(Id, userId));
+
+    public void Remove()=> DeletedIn = DateTime.Now;
 
     public void Update(UpdatePetDto updatePetDto)
     {
