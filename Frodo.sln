@@ -33,9 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Validations", "Core\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{55FF119E-2F18-47B1-9942-5C744D9F32D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Users.Domain", "Modules\Users\Frodo.Users.Domain\Frodo.Users.Domain.csproj", "{02ADC48C-9FD2-4CAE-AEC5-F13A89780685}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Users.Domain", "Modules\Users\Frodo.Users.Domain\Frodo.Users.Domain.csproj", "{02ADC48C-9FD2-4CAE-AEC5-F13A89780685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Users.Infra.Data", "Modules\Users\Frodo.Users.Infra.Data\Frodo.Users.Infra.Data.csproj", "{4F083176-D78F-4AD9-8840-D3FDFE9A120E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Users.Infra.Data", "Modules\Users\Frodo.Users.Infra.Data\Frodo.Users.Infra.Data.csproj", "{4F083176-D78F-4AD9-8840-D3FDFE9A120E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Common", "Frodo.Common\Frodo.Common.csproj", "{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Users.Application", "Modules\Users\Frodo.Users.Application\Frodo.Users.Application.csproj", "{10CF0D16-0E58-43ED-9750-4935AB63E5FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +95,14 @@ Global
 		{4F083176-D78F-4AD9-8840-D3FDFE9A120E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F083176-D78F-4AD9-8840-D3FDFE9A120E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F083176-D78F-4AD9-8840-D3FDFE9A120E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CF0D16-0E58-43ED-9750-4935AB63E5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CF0D16-0E58-43ED-9750-4935AB63E5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CF0D16-0E58-43ED-9750-4935AB63E5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CF0D16-0E58-43ED-9750-4935AB63E5FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +122,7 @@ Global
 		{55FF119E-2F18-47B1-9942-5C744D9F32D6} = {4B62E64A-68F9-4ADA-A8A1-46D9765D0F71}
 		{02ADC48C-9FD2-4CAE-AEC5-F13A89780685} = {55FF119E-2F18-47B1-9942-5C744D9F32D6}
 		{4F083176-D78F-4AD9-8840-D3FDFE9A120E} = {55FF119E-2F18-47B1-9942-5C744D9F32D6}
+		{10CF0D16-0E58-43ED-9750-4935AB63E5FF} = {55FF119E-2F18-47B1-9942-5C744D9F32D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D81F9FDC-7944-4B6F-8782-4ECEB1E84774}

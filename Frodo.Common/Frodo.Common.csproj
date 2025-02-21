@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\Frodo.Common\Frodo.Common.csproj" />
-  </ItemGroup>
-
 </Project>

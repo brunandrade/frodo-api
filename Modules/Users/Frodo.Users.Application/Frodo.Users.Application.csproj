@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\Frodo.Common\Frodo.Common.csproj" />
+    <ProjectReference Include="..\..\..\Core\Core.Messaging\Core.Messaging.csproj" />
+    <ProjectReference Include="..\Frodo.Users.Domain\Frodo.Users.Domain.csproj" />
   </ItemGroup>
 
 </Project>

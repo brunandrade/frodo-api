@@ -1,7 +1,6 @@
 ﻿using Core.Domain.DomainObjects;
+using Frodo.Common.Utils;
 using Frodo.Users.Domain.Enums;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace Frodo.Users.Domain;
 
@@ -16,7 +15,7 @@ public class User : Entity, IAggregateRoot
     {
         Name = name;
         Email = email;
-        Password = HashPassword(password);
+        Password = PasswordUtils.HashPassword(password);
         Active = true;
         ChangeStatus(UserStatusEnum.Pending);
     }
@@ -29,18 +28,11 @@ public class User : Entity, IAggregateRoot
     public IEnumerable<UserVerificationToken> VerificationTokens { get; protected set; }
 
     public bool ValidatePassword(string password)
-        => Password == HashPassword(password);
+        => Password == PasswordUtils.HashPassword(password);
 
     private void ChangeStatus(UserStatusEnum userStatus)
     {
         Status = userStatus;
         UpdatedIn = DateTime.Now;
-    }
-
-    private string HashPassword(string password)
-    {
-        using var sha256 = SHA256.Create();
-        byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-        return Convert.ToBase64String(hashedBytes);
     }
 }
