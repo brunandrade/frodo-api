@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Core.Data\Core.Data.csproj" />
-    <ProjectReference Include="..\..\..\Core\Core.Domain\Core.Domain.csproj" />
-    <ProjectReference Include="..\..\..\Frodo.Common\Frodo.Common.csproj" />
+    <PackageReference Include="System.IO.Ports" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

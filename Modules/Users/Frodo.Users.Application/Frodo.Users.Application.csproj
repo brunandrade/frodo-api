@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Core.Messaging\Core.Messaging.csproj" />
+    <ProjectReference Include="..\..\..\Core\Core.Validations\Core.Validations.csproj" />
+    <ProjectReference Include="..\..\..\Frodo.Integrations\Frodo.Integrations.csproj" />
     <ProjectReference Include="..\Frodo.Users.Domain\Frodo.Users.Domain.csproj" />
   </ItemGroup>
 

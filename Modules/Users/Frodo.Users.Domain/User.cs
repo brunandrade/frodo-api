@@ -11,21 +11,27 @@ public class User : Entity, IAggregateRoot
         VerificationTokens = new List<UserVerificationToken>();
     }
 
-    public User(string name, string email, string password) : this()
+    public User(string name, string email, string phone, string password) : this()
     {
         Name = name;
         Email = email;
+        Phone = phone;
         Password = PasswordUtils.HashPassword(password);
         Active = true;
+        AddVerificationToken();
         ChangeStatus(UserStatusEnum.Pending);
     }
 
     public string Name { get; protected set; }
     public string Email { get; protected set; }
+    public string Phone { get; protected set; }
     public string Password { get; protected set; }
     public bool Active { get; protected set; }
     public UserStatusEnum Status { get; protected set; }
-    public IEnumerable<UserVerificationToken> VerificationTokens { get; protected set; }
+    public ICollection<UserVerificationToken> VerificationTokens { get; protected set; }
+
+    public void AddVerificationToken()
+        => VerificationTokens.Add(new UserVerificationToken(Id));
 
     public bool ValidatePassword(string password)
         => Password == PasswordUtils.HashPassword(password);
