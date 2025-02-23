@@ -35,7 +35,7 @@ public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, UserM
             throw new BusinessException("CreateUser", "Já existe um usuário com este email.");
         }
 
-        var user = new User(request.Name, request.Email, request.Phone, request.Password);
+        var user = new User(request.Name, request.Email, request.Phone);
         var verificationToken = user.VerificationTokens.FirstOrDefault(v => !v.IsExpired());
 
         await _userRepository.AddAsync(user, cancellationToken);

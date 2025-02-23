@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Core\Core.Api\Core.Api.csproj" />
     <ProjectReference Include="..\Modules\Pets\Frodo.Pets.Application\Frodo.Pets.Application.csproj" />
     <ProjectReference Include="..\Modules\Pets\Frodo.Pets.Infra.Data\Frodo.Pets.Infra.Data.csproj" />
+    <ProjectReference Include="..\Modules\Users\Frodo.Users.Infra.Data\Frodo.Users.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

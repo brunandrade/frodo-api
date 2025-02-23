@@ -1,5 +1,6 @@
 ﻿using Frodo.Users.Application;
 using Frodo.Users.Domain;
+using Frodo.Users.Infra.Data.Mappings;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,6 @@ public static class UserInstaller
         services.AddDbContext<UserContext>(options => options
             .UseSqlServer(configuration
                 .GetConnectionString("sqlserver"), x => x
-                    .MigrationsAssembly(typeof(UserContext).Assembly.FullName)));
+                    .MigrationsAssembly(typeof(UserMap).Assembly.FullName)));
     }
 }

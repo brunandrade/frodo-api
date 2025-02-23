@@ -11,7 +11,7 @@ public class UserMap : BaseMap<User>
         base.Configure(builder);
         builder.Property(x => x.Name).IsRequired(true);
         builder.Property(x => x.Email).IsRequired(true);
-        builder.Property(x => x.Password).IsRequired(true);
+        //builder.Property(x => x.Password).IsRequired(true);
         builder.Property(x => x.Active).IsRequired(true);
         builder.Property(x => x.Status).IsRequired(true);
 
