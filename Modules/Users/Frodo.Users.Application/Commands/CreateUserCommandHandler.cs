@@ -8,11 +8,8 @@ using Mapster;
 
 namespace Frodo.Users.Application.Commands;
 
-public record CreateUserCommand(
-    string Name,
-    string Email,
-    string Phone,
-    string Password) : ICommand<UserModel>;
+ public record CreateUserCommand(string Name,string Email,
+    string Phone) : ICommand<UserModel>;
 
 public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, UserModel>
 {

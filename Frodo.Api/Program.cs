@@ -1,3 +1,4 @@
+using Core.Api.Middlewares;
 using Frodo.Api;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ if (!app.Environment.IsProduction())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.MapControllers();
 
