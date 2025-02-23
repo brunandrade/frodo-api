@@ -18,4 +18,16 @@ public class UserController(IMediator mediator) : BaseController
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> Create([FromBody] CreateUserCommand request)
         => Ok(await _mediator.Send(request));
+
+    [HttpPut("{id}/verify-token")]
+    [ProducesResponseType(typeof(IActionResult), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> VerifyToken([FromRoute] Guid id, [FromBody] VerifyUserRequest request)
+        => Ok(await _mediator.Send(new VerifyUserCommand(id, request.Token)));
+
+    [HttpPost("{id}/resend-verify-token")]
+    [ProducesResponseType(typeof(IActionResult), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> ResendVerifyToken([FromRoute] Guid id)
+        => Ok(await _mediator.Send(new ResendVerifyTokenCommand(id)));
 }

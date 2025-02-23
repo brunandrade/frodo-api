@@ -16,7 +16,6 @@ public class User : Entity, IAggregateRoot
         Name = name;
         Email = email;
         Phone = phone;
-       // Password = PasswordUtils.HashPassword(password);
         Active = false;
         AddVerificationToken();
         ChangeStatus(UserStatusEnum.Pending);
@@ -25,7 +24,6 @@ public class User : Entity, IAggregateRoot
     public string Name { get; protected set; }
     public string Email { get; protected set; }
     public string Phone { get; protected set; }
-    //public string Password { get; protected set; }
     public bool Active { get; protected set; }
     public UserStatusEnum Status { get; protected set; }
     public ICollection<UserVerificationToken> VerificationTokens { get; protected set; }
@@ -33,8 +31,21 @@ public class User : Entity, IAggregateRoot
     public void AddVerificationToken()
         => VerificationTokens.Add(new UserVerificationToken(Id));
 
-    //public bool ValidatePassword(string password)
-    //    => Password == PasswordUtils.HashPassword(password);
+    public void RemoveAllTokens()
+    {
+        foreach (var item in VerificationTokens)
+        {
+            item.Delete();
+        }
+    }
+
+    public void VerifyToken(string token)
+    {
+        var verificationToken = VerificationTokens.First(v => v.VerificationToken == token);
+        verificationToken.SetExpired();
+        Active = true;
+        ChangeStatus(UserStatusEnum.Registered);
+    }
 
     private void ChangeStatus(UserStatusEnum userStatus)
     {

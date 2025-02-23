@@ -22,4 +22,6 @@ public class UserVerificationToken : Entity
     public DateTime ExpiresOn { get; protected set; }
 
     public bool IsExpired() => DateTime.Now > ExpiresOn;
+    public void SetExpired() => ExpiresOn = DateTime.Now;
+    public void Delete() => DeletedIn = DateTime.Now;
 }
