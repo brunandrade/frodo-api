@@ -38,7 +38,7 @@ public class CreateUserCommandHandler : ICommandHandler<CreateUserCommand, UserM
         await _userRepository.AddAsync(user, cancellationToken);
         await _userRepository.IUnitOfWork.Commit(cancellationToken);
 
-        await _sendSMSService.SendSmsAsync("COM3", request.Phone, verificationToken!.VerificationToken);
+        //await _sendSMSService.SendSmsAsync("COM3", request.Phone, verificationToken!.VerificationToken);
 
         var data = user.Adapt<UserModel>();
         return data;
