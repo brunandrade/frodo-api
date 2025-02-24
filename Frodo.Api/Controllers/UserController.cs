@@ -30,4 +30,10 @@ public class UserController(IMediator mediator) : BaseController
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> ResendVerifyToken([FromRoute] Guid id)
         => Ok(await _mediator.Send(new ResendVerifyTokenCommand(id)));
+
+    [HttpPost("/sign-in")]
+    [ProducesResponseType(typeof(IActionResult), (int)HttpStatusCode.OK)]
+    [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+    public async Task<IActionResult> SignIn([FromBody] string email)
+        => Ok(await _mediator.Send(new SignInCommand(email)));
 }

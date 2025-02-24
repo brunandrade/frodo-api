@@ -1,5 +1,4 @@
 ﻿using Core.Domain.DomainObjects;
-using Frodo.Common.Utils;
 using Frodo.Users.Domain.Enums;
 
 namespace Frodo.Users.Domain;
