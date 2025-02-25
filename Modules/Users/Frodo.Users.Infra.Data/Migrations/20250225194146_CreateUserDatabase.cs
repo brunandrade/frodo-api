@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Frodo.Users.Infra.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateUserSchema : Migration
+    public partial class CreateUserDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,15 +19,15 @@ namespace Frodo.Users.Infra.Data.Migrations
                 schema: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Active = table.Column<bool>(type: "bit", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    CreatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedIn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    Phone = table.Column<string>(type: "text", nullable: false),
+                    Active = table.Column<bool>(type: "boolean", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false),
+                    CreatedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DeletedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,13 +39,13 @@ namespace Frodo.Users.Infra.Data.Migrations
                 schema: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    VerificationToken = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpiresOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedIn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedIn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false),
+                    VerificationToken = table.Column<string>(type: "text", nullable: false),
+                    ExpiresOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CreatedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DeletedIn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -21,8 +21,8 @@ public static class UserInstaller
         });
 
         services.AddDbContext<UserContext>(options => options
-            .UseSqlServer(configuration
-                .GetConnectionString("sqlserver"), x => x
+            .UseNpgsql(configuration
+                .GetConnectionString("database"), x => x
                     .MigrationsAssembly(typeof(UserMap).Assembly.FullName)));
     }
 }
