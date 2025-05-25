@@ -1,5 +1,6 @@
 ﻿using Core.Data.Mapping;
 using Frodo.Pets.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Frodo.Pets.Infra.Data.Mappings;
@@ -8,6 +9,8 @@ public class MedicationMap : BaseMap<Medication>
 {
     public override void Configure(EntityTypeBuilder<Medication> builder)
     {
+        builder.ToTable("Medications", schema: "Pets");
+
         base.Configure(builder);
         builder.Property(x => x.Name).IsRequired(true);
         builder.Property(x => x.Description).IsRequired(true);

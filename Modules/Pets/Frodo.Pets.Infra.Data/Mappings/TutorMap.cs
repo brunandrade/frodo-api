@@ -9,6 +9,8 @@ public class TutorMap : BaseMap<Tutor>
 {
     public override void Configure(EntityTypeBuilder<Tutor> builder)
     {
+        builder.ToTable("Tutors", schema: "Pets");
+
         base.Configure(builder);
         builder.Property(x => x.PetId).IsRequired(true);
         builder.Property(x => x.UserId).IsRequired(true);

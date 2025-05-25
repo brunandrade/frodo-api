@@ -1,4 +1,5 @@
 ﻿using Core.Domain.DomainObjects;
+using Frodo.Common.Utils;
 using Frodo.Users.Domain.Enums;
 
 namespace Frodo.Users.Domain;
@@ -10,22 +11,34 @@ public class User : Entity, IAggregateRoot
         VerificationTokens = new List<UserVerificationToken>();
     }
 
-    public User(string name, string email, string phone) : this()
+    public User(string name, string email, string userName, string password) : this()
     {
         Name = name;
         Email = email;
-        Phone = phone;
-        Active = false;
+        UserName = userName;
+
+        PasswordSalt = PasswordUtils.GenerateSalt();
+        PasswordHash = PasswordUtils.HashPassword(password, PasswordSalt);
+
         AddVerificationToken();
         ChangeStatus(UserStatusEnum.Pending);
+        Active = false;
     }
 
     public string Name { get; protected set; }
     public string Email { get; protected set; }
-    public string Phone { get; protected set; }
+    public string UserName { get; protected set; }
     public bool Active { get; protected set; }
+    public string PasswordSalt { get; protected set; }
+    public string PasswordHash { get; protected set; }
     public UserStatusEnum Status { get; protected set; }
     public ICollection<UserVerificationToken> VerificationTokens { get; protected set; }
+
+    public bool VerifyPassword(string password)
+    {
+        var hashed = PasswordUtils.HashPassword(password, PasswordSalt);
+        return PasswordHash == hashed;
+    }
 
     public void AddVerificationToken()
         => VerificationTokens.Add(new UserVerificationToken(Id));

@@ -20,7 +20,7 @@ public class SignInCommandHandler : ICommandHandler<SignInCommand, UserModel>
 
     public async Task<UserModel> Handle(SignInCommand request, CancellationToken cancellationToken)
     {
-        var specification = new UserSpecification(request.Email);
+        var specification = new GetUserSpecificationByEmail(request.Email);
         var users = await _userRepository.FindAsync(specification, cancellationToken);
 
         if (users?.Any() == false)

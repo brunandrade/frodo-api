@@ -6,10 +6,9 @@ public class UserModel
 {
     public string Name { get; set; }
     public string Email { get; set; }
-    public string Password { get; set; }
     public bool Active { get; set; }
     public UserStatusEnum Status { get; set; }
-    public IEnumerable<UserVerificationTokenModel> VerificationTokens { get; protected set; }
+    public IEnumerable<UserVerificationTokenModel>? VerificationTokens { get; protected set; }
 }
 
 public class UserVerificationTokenModel

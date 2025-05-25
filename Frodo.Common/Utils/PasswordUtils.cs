@@ -1,14 +1,20 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 
 namespace Frodo.Common.Utils;
 
 public static class PasswordUtils
 {
-    public static string HashPassword(string password)
+    public static string GenerateSalt(int size = 32)
     {
-        using var sha256 = SHA256.Create();
-        byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-        return Convert.ToBase64String(hashedBytes);
+        var saltBytes = new byte[size];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(saltBytes);
+        return Convert.ToBase64String(saltBytes);
+    }
+
+    public static string HashPassword(string password, string salt)
+    {
+        var pbkdf2 = new Rfc2898DeriveBytes(password, Convert.FromBase64String(salt), 10000, HashAlgorithmName.SHA256);
+        return Convert.ToBase64String(pbkdf2.GetBytes(32));
     }
 }

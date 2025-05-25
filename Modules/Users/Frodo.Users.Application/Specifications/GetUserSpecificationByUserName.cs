@@ -4,12 +4,12 @@ using Frodo.Users.Domain;
 
 namespace Frodo.Users.Application.Specifications;
 
-public class UserSpecification : AbstractSpecification<User>
+public class GetUserSpecificationByUserName : AbstractSpecification<User>
 {
-    public UserSpecification(string email)
+    public GetUserSpecificationByUserName(string username)
     {
-        Query.Where(x => x.Email == email);
+        Query.Where(x => x.UserName == username);
+
         Query.Where(p => !p.DeletedIn.HasValue);
-        Query.OrderBy(o => o.Name);
     }
 }
