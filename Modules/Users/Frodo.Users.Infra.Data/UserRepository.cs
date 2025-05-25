@@ -1,5 +1,6 @@
 ﻿using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
+using Core.Data;
 using Core.Data.Extensions;
 using Core.Data.UnitOfWork;
 using Core.Domain.DomainObjects;
@@ -8,26 +9,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Frodo.Users.Infra.Data;
 
-public class UserRepository : IUserRepository
+public class UserRepository(IAppDBContext context) : IUserRepository
 {
-    protected UserContext _userContext;
+    private readonly IAppDBContext _context = context;
 
-    public UserRepository(UserContext userContext)
-    {
-        _userContext = userContext;
-    }
+    public IUnitOfWork IUnitOfWork => _context;
 
-    public IUnitOfWork IUnitOfWork => _userContext;
+    public async Task AddAsync(User entity, CancellationToken cancellationToken)
+        => await _context.AddAsync(entity, cancellationToken);
 
-    public async Task AddAsync<T>(T entity, CancellationToken cancellationToken)
-        => await _userContext.AddAsync(entity, cancellationToken);
-
-    public void Update<T>(T entity)
-        => _userContext.Update(entity);
+    public void Update(User entity)
+        => _context.Update(entity);
 
     public async Task<T?> GetByIdAsync<T>(Guid id, IEnumerable<string>? includes, CancellationToken cancellationToken) where T : Entity
     {
-        return await _userContext
+        return await _context
             .Set<T>()
             .Where(x => x.Id == id && !x.DeletedIn.HasValue)
             .IncludeMultiple(includes)
@@ -36,7 +32,7 @@ public class UserRepository : IUserRepository
 
     public async Task<IEnumerable<T>?> FindAsync<T>(ISpecification<T> spec, CancellationToken cancellationToken) where T : Entity
     {
-        var query = _userContext.Set<T>().AsQueryable();
+        var query = _context.Set<T>().AsQueryable();
         query = SpecificationEvaluator.Default.GetQuery(query, spec);
 
         return await query.ToListAsync(cancellationToken);

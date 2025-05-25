@@ -37,11 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Users.Domain", "Modul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Users.Infra.Data", "Modules\Users\Frodo.Users.Infra.Data\Frodo.Users.Infra.Data.csproj", "{4F083176-D78F-4AD9-8840-D3FDFE9A120E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Common", "Frodo.Common\Frodo.Common.csproj", "{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Common", "Frodo.Common\Frodo.Common.csproj", "{78031A19-AB1C-41A8-88EE-CD5578D4EB2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Users.Application", "Modules\Users\Frodo.Users.Application\Frodo.Users.Application.csproj", "{10CF0D16-0E58-43ED-9750-4935AB63E5FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Users.Application", "Modules\Users\Frodo.Users.Application\Frodo.Users.Application.csproj", "{10CF0D16-0E58-43ED-9750-4935AB63E5FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Integrations", "Frodo.Integrations\Frodo.Integrations.csproj", "{9D396BEF-FB86-40AC-B5F8-686B37A77BC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Frodo.Integrations", "Frodo.Integrations\Frodo.Integrations.csproj", "{9D396BEF-FB86-40AC-B5F8-686B37A77BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Infra.Data", "Frodo.Infra.Data\Frodo.Infra.Data.csproj", "{90A37231-1EA5-4833-9239-4F474092882E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frodo.Infrastructure", "Frodo.Infrastructure\Frodo.Infrastructure.csproj", "{7DAB7991-5957-47F7-B3AD-3FC61E053678}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +113,14 @@ Global
 		{9D396BEF-FB86-40AC-B5F8-686B37A77BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D396BEF-FB86-40AC-B5F8-686B37A77BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D396BEF-FB86-40AC-B5F8-686B37A77BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A37231-1EA5-4833-9239-4F474092882E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A37231-1EA5-4833-9239-4F474092882E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A37231-1EA5-4833-9239-4F474092882E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A37231-1EA5-4833-9239-4F474092882E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DAB7991-5957-47F7-B3AD-3FC61E053678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DAB7991-5957-47F7-B3AD-3FC61E053678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DAB7991-5957-47F7-B3AD-3FC61E053678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DAB7991-5957-47F7-B3AD-3FC61E053678}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

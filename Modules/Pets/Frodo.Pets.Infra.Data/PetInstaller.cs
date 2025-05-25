@@ -2,7 +2,6 @@
 using Frodo.Pets.Domain.Interfaces;
 using Frodo.Pets.Domain.Services;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,16 +14,5 @@ public static class PetInstaller
         services.AddMediatR(typeof(ApplicationAssemblyReference).Assembly);
         services.AddScoped<IPetFactory, PetFactory>();
         services.AddScoped<ICreatePetVaccineService, CreatePetVaccineService>();
-
-        services.AddScoped<IPetRepository, PetRepository>(provider =>
-        {
-            var contexto = provider.GetRequiredService<PetContext>();
-            return new PetRepository(contexto);
-        });
-
-        services.AddDbContext<PetContext>(options => options
-            .UseSqlServer(configuration
-                .GetConnectionString("sqlserver"), x => x
-                    .MigrationsAssembly(typeof(PetContext).Assembly.FullName)));
     }
 }

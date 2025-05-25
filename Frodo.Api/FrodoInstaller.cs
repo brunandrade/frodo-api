@@ -1,4 +1,5 @@
 ﻿using Core.Api.Middlewares;
+using Frodo.Infra.Data;
 using Frodo.Integrations;
 using Frodo.Pets.Infra.Data;
 using Frodo.Users.Infra.Data;
@@ -16,6 +17,7 @@ public static class FrodoInstaller
             return new ExceptionHandlerMiddleware(logger, projectName);
         });
 
+        InfraDataInstaller.Install(services, configuration);
         IntegrationsInstaller.Install(services, configuration);
         PetInstaller.Install(services, configuration);
         UserInstaller.Install(services, configuration);

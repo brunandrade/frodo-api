@@ -1,8 +1,5 @@
 ﻿using Frodo.Users.Application;
-using Frodo.Users.Domain;
-using Frodo.Users.Infra.Data.Mappings;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,16 +10,5 @@ public static class UserInstaller
     public static void Install(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddMediatR(typeof(ApplicationAssemblyReference).Assembly);
-
-        services.AddScoped<IUserRepository, UserRepository>(provider =>
-        {
-            var contexto = provider.GetRequiredService<UserContext>();
-            return new UserRepository(contexto);
-        });
-
-        services.AddDbContext<UserContext>(options => options
-            .UseNpgsql(configuration
-                .GetConnectionString("database"), x => x
-                    .MigrationsAssembly(typeof(UserMap).Assembly.FullName)));
     }
 }
