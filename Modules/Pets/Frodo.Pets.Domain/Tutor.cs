@@ -1,19 +1,21 @@
 ﻿using Core.Domain.DomainObjects;
 
-namespace Frodo.Pets.Domain.Entities;
+namespace Frodo.Pets.Domain;
 
-public class PetUser : Entity
+public class Tutor : Entity
 {
-    public PetUser()
+    public Tutor()
     {
-        
+
     }
-    public PetUser(Guid petId, Guid userId) : this()
+    public Tutor(Guid petId, Guid userId) : this()
     {
         PetId = petId;
         UserId = userId;
+        Active = true;
     }
 
     public Guid PetId { get; protected set; }
     public Guid UserId { get; protected set; }
+    public bool Active { get; protected set; }
 }

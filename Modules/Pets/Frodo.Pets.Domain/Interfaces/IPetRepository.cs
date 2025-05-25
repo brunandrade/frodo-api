@@ -1,5 +1,4 @@
 ﻿using Core.Data.Repositories;
-using Frodo.Pets.Domain.Entities;
 
 namespace Frodo.Pets.Domain.Interfaces;
 

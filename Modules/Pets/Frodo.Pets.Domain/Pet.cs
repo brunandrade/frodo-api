@@ -2,14 +2,14 @@
 using Frodo.Pets.Domain.Dtos;
 using Frodo.Pets.Domain.Enums;
 
-namespace Frodo.Pets.Domain.Entities;
+namespace Frodo.Pets.Domain;
 
 public class Pet : Entity, IAggregateRoot
 {
     public Pet()
     {
-        Users = new List<PetUser>();
-        Vaccines = new List<PetVaccine>();
+        Tutors = new List<Tutor>();
+        Vaccines = new List<Vaccine>();
     }
 
     public Pet(CreatePetDto createPetDto) : this()
@@ -29,21 +29,18 @@ public class Pet : Entity, IAggregateRoot
     public PetGenderEnum Gender { get; protected set; }
     public decimal Weight { get; protected set; }
     public string Race { get; protected set; }
+    public DateTime DateOfBirth { get; protected set; }
+    public string? MicrochipId { get; protected set; }
+    public string? FavoriteFood { get; protected set; }
     public string? ImageUrl { get; protected set; }
-    public ICollection<PetUser> Users { get; protected set; }
-    public ICollection<PetVaccine> Vaccines { get; protected set; }
-
-    public PetVaccine AddPetVaccine(CreatePetVaccineDto createPetVaccineDto)
-    {
-        var petVaccine = new PetVaccine(createPetVaccineDto);
-        Vaccines.Add(petVaccine);
-        return petVaccine;
-    }
+    public ICollection<Tutor> Tutors { get; protected set; }
+    public ICollection<Vaccine> Vaccines { get; protected set; }
+    public ICollection<Medication> Medications { get; protected set; }
 
     public void AddPetUser(Guid userId)
-        => Users.Add(new PetUser(Id, userId));
+        => Tutors.Add(new Tutor(Id, userId));
 
-    public void Remove()=> DeletedIn = DateTime.Now;
+    public void Remove() => DeletedIn = DateTime.Now;
 
     public void Update(UpdatePetDto updatePetDto)
     {

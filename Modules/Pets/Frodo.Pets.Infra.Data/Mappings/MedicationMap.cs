@@ -1,5 +1,5 @@
 ﻿using Core.Data.Mapping;
-using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Frodo.Pets.Infra.Data.Mappings;
@@ -11,7 +11,10 @@ public class MedicationMap : BaseMap<Medication>
         base.Configure(builder);
         builder.Property(x => x.Name).IsRequired(true);
         builder.Property(x => x.Description).IsRequired(true);
-        builder.Property(x => x.Mandatory).IsRequired(true);
-        builder.Property(x => x.IsVaccine).IsRequired(true);
+        builder.Property(x => x.TakenIn).IsRequired(true);
+        builder.Property(x => x.Frequency).IsRequired(true).HasConversion<string>();
+        builder.Property(x => x.Quantity).IsRequired(false);
+        builder.Property(x => x.Duration).IsRequired(true);
+        builder.Property(x => x.OtherDuration).IsRequired(false);
     }
 }

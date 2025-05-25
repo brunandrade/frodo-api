@@ -1,7 +1,7 @@
 ﻿using Core.Messaging.Messaging;
 using Core.Validations.Exceptions;
 using Frodo.Pets.Application.Models;
-using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain;
 using Frodo.Pets.Domain.Interfaces;
 using Mapster;
 

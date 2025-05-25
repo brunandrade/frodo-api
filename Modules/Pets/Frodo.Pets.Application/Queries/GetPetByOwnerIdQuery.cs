@@ -1,6 +1,6 @@
 ﻿using Core.Messaging.Messaging;
 using Frodo.Pets.Application.Specifications;
-using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain;
 using Frodo.Pets.Domain.Interfaces;
 using Mapster;
 using MediatR;

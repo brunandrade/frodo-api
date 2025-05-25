@@ -1,8 +1,11 @@
 ﻿using Frodo.Pets.Domain.Dtos;
-using Frodo.Pets.Domain.Entities;
-using Frodo.Pets.Domain.Interfaces;
 
 namespace Frodo.Pets.Domain.Services;
+
+public interface IPetFactory
+{
+    Pet Create(CreatePetDto createPetDto);
+}
 
 public class PetFactory : IPetFactory
 {

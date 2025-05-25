@@ -9,7 +9,7 @@ public record PetVaccineModel
     public Guid PetId { get; set; }
     public Guid MedicationId { get; set; }
     public DateTime VaccinationIn { get; set; }
-    public VaccinationFrequencyEnum Frequency { get; set; }
+    public FrequencyEnum Frequency { get; set; }
     public string FrequencyName => Frequency.GetDescription();
     public int? NumberOfDays { get; set; }
     public string? DoctorName { get; set; }

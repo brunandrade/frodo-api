@@ -4,7 +4,7 @@ using Core.Data;
 using Core.Data.Extensions;
 using Core.Data.UnitOfWork;
 using Core.Domain.DomainObjects;
-using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain;
 using Frodo.Pets.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 

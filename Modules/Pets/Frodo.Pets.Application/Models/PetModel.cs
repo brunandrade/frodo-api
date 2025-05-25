@@ -1,5 +1,5 @@
 ﻿using Core.Common.Extensions;
-using Frodo.Pets.Domain.Entities;
+using Frodo.Pets.Domain;
 using Frodo.Pets.Domain.Enums;
 
 namespace Frodo.Pets.Application.Models;
@@ -16,6 +16,4 @@ public record PetModel
     public string? ImageUrl { get; set; }
     public DateTime CreatedIn { get; set; }
     public DateTime UpdatedIn { get; set; }
-    public IEnumerable<PetUser> Users { get; set; }
-    public IEnumerable<PetVaccineModel> Vaccines { get; set; }
 }

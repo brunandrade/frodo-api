@@ -3,6 +3,7 @@ using Frodo.Pets.Application.Extensions;
 using Frodo.Pets.Application.Models;
 using Frodo.Pets.Domain.Enums;
 using Frodo.Pets.Domain.Interfaces;
+using Frodo.Pets.Domain.Services;
 using Mapster;
 using Microsoft.AspNetCore.Http;
 
