@@ -14,6 +14,6 @@ public class UserVerificationTokenMap : BaseMap<UserVerificationToken>
         base.Configure(builder);
         builder.Property(x => x.UserId).IsRequired(true);
         builder.Property(x => x.VerificationToken).IsRequired(true);
-        builder.Property(x => x.ExpiresOn).IsRequired(true);
+        builder.Property(x => x.ExpiresOn).HasColumnType("timestamp without time zone").IsRequired(true);
     }
 }

@@ -5,7 +5,7 @@ public abstract class Entity
     protected Entity()
     {
         Id = Guid.NewGuid();
-        CreatedIn = UpdatedIn = DateTime.UtcNow;
+        CreatedIn = UpdatedIn = DateTime.Now;
     }
 
     public Guid Id { get; protected set; }

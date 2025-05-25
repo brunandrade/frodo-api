@@ -19,6 +19,9 @@ public class UserMap : BaseMap<User>
         builder.Property(x => x.Active).IsRequired(true);
         builder.Property(x => x.Status).IsRequired(true);
 
-        builder.HasMany(x => x.VerificationTokens);
+        builder.HasMany(x => x.VerificationTokens)
+           .WithOne() 
+           .HasForeignKey(v => v.UserId)
+           .IsRequired();
     }
 }

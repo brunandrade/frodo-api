@@ -13,7 +13,12 @@ public class VaccineDateMap : BaseMap<VaccineDate>
 
         base.Configure(builder);
         builder.Property(x => x.PetVaccineId).IsRequired(true);
-        builder.Property(x => x.VaccinationIn).IsRequired(true);
-        builder.Property(x => x.RevaccinateIn).IsRequired(true);
+        builder.Property(x => x.VaccinationIn)
+            .HasColumnType("timestamp without time zone")
+            .IsRequired(true);
+
+        builder.Property(x => x.RevaccinateIn)
+            .HasColumnType("timestamp without time zone")
+            .IsRequired(true);
     }
 }

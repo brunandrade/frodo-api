@@ -10,8 +10,16 @@ public abstract class BaseMap<T> : IEntityTypeConfiguration<T> where T : Entity
     {
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).ValueGeneratedNever();
-        builder.Property(x => x.CreatedIn).IsRequired(true);
-        builder.Property(x => x.UpdatedIn).IsRequired(true);
-        builder.Property(x => x.DeletedIn).IsRequired(false);
+        builder.Property(x => x.CreatedIn)
+            .HasColumnType("timestamp without time zone")
+            .IsRequired(true);
+
+        builder.Property(x => x.UpdatedIn)
+            .HasColumnType("timestamp without time zone")
+            .IsRequired(true);
+
+        builder.Property(x => x.DeletedIn)
+            .HasColumnType("timestamp without time zone")
+            .IsRequired(false);
     }
 }

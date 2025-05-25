@@ -17,7 +17,9 @@ public class PetMap : BaseMap<Pet>
         builder.Property(x => x.Gender).IsRequired(true);
         builder.Property(x => x.Weight).IsRequired(true);
         builder.Property(x => x.Race).IsRequired(true);
-        builder.Property(x => x.DateOfBirth).IsRequired(true);
+
+        builder.Property(x => x.DateOfBirth).IsRequired();
+
         builder.Property(x => x.MicrochipId).IsRequired(false);
         builder.Property(x => x.FavoriteFood).IsRequired(false);
         builder.Property(x => x.ImageUrl).IsRequired(false);

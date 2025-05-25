@@ -6,10 +6,8 @@ namespace Frodo.Users.Domain;
 
 public class User : Entity, IAggregateRoot
 {
-    public User()
-    {
-        VerificationTokens = new List<UserVerificationToken>();
-    }
+    public User() 
+        => VerificationTokens = new List<UserVerificationToken>();
 
     public User(string name, string email, string userName, string password) : this()
     {

@@ -14,7 +14,7 @@ public class MedicationMap : BaseMap<Medication>
         base.Configure(builder);
         builder.Property(x => x.Name).IsRequired(true);
         builder.Property(x => x.Description).IsRequired(true);
-        builder.Property(x => x.TakenIn).IsRequired(true);
+        builder.Property(x => x.TakenIn).HasColumnType("timestamp without time zone").IsRequired(true);
         builder.Property(x => x.Frequency).IsRequired(true).HasConversion<string>();
         builder.Property(x => x.Quantity).IsRequired(false);
         builder.Property(x => x.Duration).IsRequired(true);
